@@ -7,9 +7,13 @@ It is recommended to install this programm on a python virtual enviroment. To do
 python3 -m venv envitoment-name
 ```
 and to activate on windows run:
-```shenviroment-name\Scripts\activate```
+```sh
+enviroment-name\Scripts\activate
+```
 and on Unix or MacOS, run:
-```sh source enviroment-name/bin/activate```
+```sh
+source enviroment-name/bin/activate
+```
 
 To use the programm you need to install dependecies:
 [ollama](https://ollama.com/download)
@@ -24,4 +28,5 @@ To start the LLM server, run:
 ollama serve
 ```
 ~~After that run `server.py` on the server and then `client.py` on client's machine.~~
+
 To execute the assistant, run `main.py` file.
