@@ -3,11 +3,13 @@ This project does what the title says. Work in progress...
 
 ## Installation
 It is recommended to install this programm on a python virtual enviroment. To do that, run:
-sh`python3 -m venv envitoment-name`
+```sh
+python3 -m venv envitoment-name
+```
 and to activate on windows run:
-sh`enviroment-name\Scripts\activate`
+```shenviroment-name\Scripts\activate```
 and on Unix or MacOS, run:
-sh`source enviroment-name/bin/activate`
+```sh source enviroment-name/bin/activate```
 
 To use the programm you need to install dependecies:
 [ollama](https://ollama.com/download)
@@ -17,6 +19,9 @@ pip install -r requirements.txt
 ```
 
 ## Running the software
-To start the LLM server, run sh`ollama serve`
+To start the LLM server, run:
+```sh
+ollama serve
+```
 ~~After that run `server.py` on the server and then `client.py` on client's machine.~~
 To execute the assistant, run `main.py` file.
