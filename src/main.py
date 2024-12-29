@@ -38,12 +38,6 @@ def tts():
     communicate = edge_tts.Communicate(text, VOICE)
     communicate.save_sync(OUTPUT_FILE)
 
-# def play_audio():
-    # pygame.init()
-    # pygame.mixer.init(frequency=44100)
-    # pygame.mixer.music.load("../tests/compleation.mp3")
-    # pygame.mixer.music.play()
-
 print("transcribing")
 transcribe()
 print("prompting")
