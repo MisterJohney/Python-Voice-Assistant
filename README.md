@@ -2,6 +2,7 @@
 This project does what the title says. Work in progress...
 
 ## Installation
+Note: as of now the voice assistant is supported on python 3.11.9 because of openai-whisper package.
 It is recommended to install this programm on a python virtual enviroment. To do that, run:
 ```sh
 python3 -m venv envitoment-name
