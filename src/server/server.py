@@ -1,11 +1,12 @@
+from transform import transform
 import socket
 import threading
 import logging
-from time import sleep
 
-def process_file(content):
-    print("processing")
-    # sleep(10)
+def process_file(content, output_file_path):
+    logging.info("Processing the audio file")
+    transform()
+
     return content
 
 def handle_client(client_socket, client_address):
@@ -24,6 +25,7 @@ def handle_client(client_socket, client_address):
 
         # Process the file
         processed_content = process_file(file_content)
+
         # Send the processed content back
         client_socket.sendall(processed_content)
     except Exception as e:

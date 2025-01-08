@@ -2,8 +2,6 @@ import socket
 import os
 import logging
 
-file_path = "./recording.wav"
-
 def send_file(file_path, host='127.0.0.1', port=5000):
     try:
         if not os.path.exists(file_path):
@@ -31,7 +29,7 @@ def send_file(file_path, host='127.0.0.1', port=5000):
             processed_content += data
         logging.info("Processed Content Received:")
             
-        with open("./recieved/output.wav", 'wb') as f:
+        with open("./output.wav", 'wb') as f:
             f.write(processed_content)
 
         client.close()
@@ -42,4 +40,6 @@ def send_file(file_path, host='127.0.0.1', port=5000):
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
+
+    file_path = "./recording.wav"
     send_file(file_path)
