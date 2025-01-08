@@ -3,12 +3,6 @@ import socket
 import threading
 import logging
 
-def process_file(content, output_file_path):
-    logging.info("Processing the audio file")
-    transform()
-
-    return content
-
 def handle_client(client_socket, client_address):
     logging.info(f"Connection established with {client_address}")
     try:
@@ -23,11 +17,17 @@ def handle_client(client_socket, client_address):
                 break
             file_content += data
 
-        # Process the file
-        processed_content = process_file(file_content)
+        # Saving file because whisper wants file path not the data itself
+        with open("./input.wav", "wb") as f:
+            f.write(file_content)
+
+        transform("./input.wav", "./output.mp3")
 
         # Send the processed content back
-        client_socket.sendall(processed_content)
+        with open("./ouput.mp3", "rb") as f:
+            processed_content = f.read()
+            client_socket.sendall(processed_content)
+
     except Exception as e:
         logging.error(f"Exception occurred: {e}")
     finally:
@@ -52,5 +52,9 @@ def start_server(host='127.0.0.1', port=5000):
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
+    logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S"
+)
     start_server()

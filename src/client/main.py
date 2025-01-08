@@ -4,11 +4,15 @@ import logging
 
 from playsound3 import playsound
 
-INPUT_FILE = "../tests/recording.wav"
+INPUT_FILE = "./recording.wav"
 OUTPUT_FILE = "../tests/compleation.mp3"
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
+    logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S"
+)
 
     logging.info("Sending file")
     send_file(INPUT_FILE)
