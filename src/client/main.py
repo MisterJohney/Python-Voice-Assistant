@@ -5,7 +5,7 @@ import logging
 from playsound3 import playsound
 
 INPUT_FILE = "./recording.wav"
-OUTPUT_FILE = "../tests/compleation.mp3"
+OUTPUT_FILE = "./output.mp3"
 
 if __name__ == "__main__":
     logging.basicConfig(

@@ -21,15 +21,17 @@ def send_file(file_path, host='127.0.0.1', port=5000):
         client.sendall(file_content)
 
         # Receive processed content
+        file_size = int(client.recv(1024).decode())
+        client.send(b"SIZE_RECEIVED")
         processed_content = b""
-        while True:
+        while len(processed_content) < file_size:
             data = client.recv(1024)
             if not data:
                 break
             processed_content += data
         logging.info("Processed Content Received:")
             
-        with open("./output.wav", 'wb') as f:
+        with open("./output.mp3", 'wb') as f:
             f.write(processed_content)
 
         client.close()

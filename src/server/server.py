@@ -26,6 +26,9 @@ def handle_client(client_socket, client_address):
         # Send the processed content back
         with open("./ouput.mp3", "rb") as f:
             processed_content = f.read()
+
+            client_socket.send(str(len(processed_content)).encode())
+            client_socket.recv(1024)
             client_socket.sendall(processed_content)
 
     except Exception as e:
