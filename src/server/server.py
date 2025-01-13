@@ -24,7 +24,7 @@ def handle_client(client_socket, client_address):
         transform("./input.wav", "./output.mp3")
 
         # Send the processed content back
-        with open("./ouput.mp3", "rb") as f:
+        with open("./output.mp3", "rb") as f:
             processed_content = f.read()
 
             client_socket.send(str(len(processed_content)).encode())
@@ -40,6 +40,7 @@ def handle_client(client_socket, client_address):
 def start_server(host='127.0.0.1', port=5000):
     try:
         server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         server.bind((host, port))
         server.listen(5)
         logging.info(f"Server started on {host}:{port}")
