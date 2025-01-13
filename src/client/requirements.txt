@@ -1,0 +1,5 @@
+# Client-side
+# playsound3
+pyaudio
+wave
+speechrecognition

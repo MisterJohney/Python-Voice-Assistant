@@ -2,14 +2,6 @@ langchain
 langchain-ollama
 ollama
 
-pyaudio
-wave
-
 openai-whisper
 
-
-speechrecognition
-
 edge-tts
-
-playsound3

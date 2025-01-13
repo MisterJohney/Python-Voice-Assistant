@@ -18,12 +18,12 @@ source enviroment-name/bin/activate
 
 To host the server you need to install dependecies:
 [ollama](https://ollama.com/download)
-after that, install necessary python dependecies from `requirements.txt`
+after that, install necessary python dependecies from `requirements.txt` inside `src/` directory.
 ```sh
 pip install -r requirements.txt
 ```
 
-For client side temporarily [mpv](https://mpv.io/) is needed
+For client side temporarily [mpv](https://mpv.io/) is needed.
 
 ## Running the software
 To start the LLM server, run:
