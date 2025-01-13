@@ -16,18 +16,18 @@ and on Unix or MacOS, run:
 source enviroment-name/bin/activate
 ```
 
-To use the programm you need to install dependecies:
+To host the server you need to install dependecies:
 [ollama](https://ollama.com/download)
 after that, install necessary python dependecies from `requirements.txt`
 ```sh
 pip install -r requirements.txt
 ```
 
+For client side temporarily [mpv](https://mpv.io/) is needed
+
 ## Running the software
 To start the LLM server, run:
 ```sh
 ollama serve
 ```
-~~After that run `server.py` on the server and then `client.py` on client's machine.~~
-
-To execute the assistant, run `main.py` file.
+After that run `server.py` on the server and then `client.py` on client's machine.
