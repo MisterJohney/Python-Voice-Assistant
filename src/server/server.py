@@ -37,7 +37,7 @@ def handle_client(client_socket, client_address):
         client_socket.close()
         logging.info(f"Connection closed with {client_address}")
 
-def start_server(host='127.0.0.1', port=5000):
+def start_server(host='192.168.8.117', port=5000):
     try:
         server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)

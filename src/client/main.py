@@ -2,7 +2,8 @@ from sender import send_file
 
 import logging
 
-from playsound3 import playsound
+import os
+# from playsound3 import playsound
 
 INPUT_FILE = "./recording.wav"
 OUTPUT_FILE = "./output.mp3"
@@ -19,4 +20,5 @@ if __name__ == "__main__":
 
     # NOTE: on the desktop for me the audio isn't playing
     logging.info("Playing")
-    playsound(OUTPUT_FILE)
+    # playsound(OUTPUT_FILE)
+    os.system("mpv " + OUTPUT_FILE)
