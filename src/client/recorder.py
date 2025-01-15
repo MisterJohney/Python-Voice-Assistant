@@ -76,14 +76,3 @@ def listen_for_keyword(keyword):
                     return
             except Exception as e:
                 print("Could not recognize audio, please try again.")
-
-if __name__ == "__main__":
-    KEYWORD = "start"  # Change this to your desired keyword
-    OUTPUT_FILE = "recorded_audio.wav"
-
-    while True:
-        # Step 1: Wait for the keyword
-        listen_for_keyword(KEYWORD)
-
-        # Step 2: Record audio until silence
-        record_audio_until_silence(OUTPUT_FILE)

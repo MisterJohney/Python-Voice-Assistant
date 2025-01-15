@@ -1,9 +1,7 @@
 __pycache__/
 
-src/client/output.mp3
-src/client/recording.wav
-src/server/input.wav
-src/server/log.db
-src/server/output.mp3
+src/client/data/output.mp3
+src/client/data/recording.wav
+src/server/data
 
 test/

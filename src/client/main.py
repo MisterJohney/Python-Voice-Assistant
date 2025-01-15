@@ -6,8 +6,8 @@ import logging
 import os
 # from playsound3 import playsound
 
-INPUT_FILE = "./recording.wav"
-OUTPUT_FILE = "./output.mp3"
+INPUT_FILE = "./data/recording.wav"
+OUTPUT_FILE = "./data/output.mp3"
 KEYWORD = "start"
 
 if __name__ == "__main__":

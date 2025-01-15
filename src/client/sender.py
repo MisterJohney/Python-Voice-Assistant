@@ -2,6 +2,8 @@ import socket
 import os
 import logging
 
+OUTPUT_PATH = "./data/output.mp3"
+
 def send_file(file_path, host='192.168.8.117', port=5000):
     try:
         if not os.path.exists(file_path):
@@ -31,7 +33,7 @@ def send_file(file_path, host='192.168.8.117', port=5000):
             processed_content += data
         logging.info("Processed Content Received:")
             
-        with open("./output.mp3", 'wb') as f:
+        with open(OUTPUT_PATH, 'wb') as f:
             f.write(processed_content)
 
         client.close()
@@ -39,9 +41,3 @@ def send_file(file_path, host='192.168.8.117', port=5000):
     except Exception as e:
         logging.error(f"Exception occurred: {e}")
         client.close()
-
-if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
-
-    file_path = "./input.wav"
-    send_file(file_path)

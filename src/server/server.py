@@ -5,6 +5,9 @@ import threading
 import logging
 import sqlite3
 
+INPUT_AUDIO = "./data/input.wav"
+OUTPUT_AUDIO = "./data/output.wav"
+
 def handle_client(client_socket, client_address):
     logging.info(f"Connection established with {client_address}")
     
@@ -21,13 +24,13 @@ def handle_client(client_socket, client_address):
             file_content += data
 
         # Saving file because whisper wants file path not the data itself
-        with open("./input.wav", "wb") as f:
+        with open(INPUT_AUDIO, "wb") as f:
             f.write(file_content)
 
-        transform("./input.wav", "./output.mp3")
+        transform(INPUT_AUDIO, OUTPUT_AUDIO)
 
         # Send the processed content back
-        with open("./output.mp3", "rb") as f:
+        with open(OUTPUT_AUDIO, "rb") as f:
             processed_content = f.read()
 
             client_socket.send(str(len(processed_content)).encode())

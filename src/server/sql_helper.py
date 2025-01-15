@@ -2,7 +2,7 @@ import sqlite3
 import time
 
 def init():
-    connection = sqlite3.connect("log.db")
+    connection = sqlite3.connect("./data/log.db")
     cursor = connection.cursor()
 
     create_log_table = """CREATE TABLE IF NOT EXISTS "log" (
