@@ -25,13 +25,13 @@ def transform(audio_file_path, output_path):
     con, cur = sql_helper.init()
 
     logging.info("Transcribing")
-    recorded_text = "BE AS CONSISE AS POSSIBLE. Strictly in no more than 100 words answer the following question: "
-    recorded_text += transcribe(audio_file_path)
+    prompt_prepend = "Do not use * or - to beautify the answer. No yapping and use no more than 100 words to answer the following question: "
+    recorded_text = transcribe(audio_file_path)
 
     logging.info("Prompting")
-    answer_text = prompt(recorded_text)
+    answer_text = prompt(prompt_prepend + recorded_text)
 
-    sql_helper.add_log_entry(con, cur, recorded_text, answer_text)
+    sql_helper.add_log_entry(con, cur, prompt_prepend + recorded_text, answer_text)
 
     logging.info("Ttsing")
     tts(answer_text, output_path)

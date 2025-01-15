@@ -7,7 +7,6 @@ import sqlite3
 
 INPUT_AUDIO = "./data/input.wav"
 OUTPUT_AUDIO = "./data/output.wav"
-
 def handle_client(client_socket, client_address):
     logging.info(f"Connection established with {client_address}")
     
