@@ -30,4 +30,4 @@ To start the LLM server, run:
 ```sh
 ollama serve
 ```
-After that run `server.py` on the server and then `client.py` on client's machine.
+After that run `server.py` on the server and then `main.py` on client's machine.

@@ -4,6 +4,8 @@ import whisper
 from langchain_ollama import OllamaLLM
 import edge_tts
 
+import sql_helper
+
 def transcribe(input_path):
     model = whisper.load_model("base")
     result = model.transcribe(input_path)
@@ -20,30 +22,16 @@ def tts(input_text, output_path):
     communicate.save_sync(output_path) # Would have loved to return audio itself, but it isn't looking plausible
 
 def transform(audio_file_path, output_path):
+    con, cur = sql_helper.init()
+
     logging.info("Transcribing")
-    recorded_text = "Strictly in no more than 100 words answer the following question: "
+    recorded_text = "BE AS CONSISE AS POSSIBLE. Strictly in no more than 100 words answer the following question: "
     recorded_text += transcribe(audio_file_path)
 
     logging.info("Prompting")
     answer_text = prompt(recorded_text)
 
+    sql_helper.add_log_entry(con, cur, recorded_text, answer_text)
+
     logging.info("Ttsing")
     tts(answer_text, output_path)
-
-
-# if __name__ == "__main__":
-#     recorded_text = "Strictly in no more than 100 words answer the following question: "
-#     logging.basicConfig(level=logging.INFO)
-#
-#     INPUT_FILE = "../../tests/recording.wav"
-#     OUTPUT_FILE = "./processed_audio.wav"
-#
-#     logging.info("transcribing")
-#     recorded_text = "Strictly in no more than 100 words answer the following question: "
-#     recorded_text += transcribe(INPUT_FILE)
-#
-#     logging.info("prompting")
-#     answer_text = prompt(recorded_text)
-#
-#     logging.info("ttsing")
-#     tts(answer_text, OUTPUT_FILE)

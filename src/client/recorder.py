@@ -81,8 +81,9 @@ if __name__ == "__main__":
     KEYWORD = "start"  # Change this to your desired keyword
     OUTPUT_FILE = "recorded_audio.wav"
 
-    # Step 1: Wait for the keyword
-    listen_for_keyword(KEYWORD)
+    while True:
+        # Step 1: Wait for the keyword
+        listen_for_keyword(KEYWORD)
 
-    # Step 2: Record audio until silence
-    record_audio_until_silence(OUTPUT_FILE)
+        # Step 2: Record audio until silence
+        record_audio_until_silence(OUTPUT_FILE)

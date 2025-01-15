@@ -2,7 +2,7 @@ import socket
 import os
 import logging
 
-def send_file(file_path, host='127.0.0.1', port=5000):
+def send_file(file_path, host='192.168.8.117', port=5000):
     try:
         if not os.path.exists(file_path):
             logging.error("File does not exist.")
@@ -43,5 +43,5 @@ def send_file(file_path, host='127.0.0.1', port=5000):
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
 
-    file_path = "./recording.wav"
+    file_path = "./input.wav"
     send_file(file_path)

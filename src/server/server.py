@@ -1,10 +1,13 @@
 from transform import transform
+
 import socket
 import threading
 import logging
+import sqlite3
 
 def handle_client(client_socket, client_address):
     logging.info(f"Connection established with {client_address}")
+    
     try:
     # Receive file data
         file_size = int(client_socket.recv(1024).decode())
@@ -44,12 +47,14 @@ def start_server(host='192.168.8.117', port=5000):
         server.bind((host, port))
         server.listen(5)
         logging.info(f"Server started on {host}:{port}")
+
         while True:
             client_socket, client_address = server.accept()
             client_handler = threading.Thread(
                 target=handle_client, args=(client_socket, client_address)
                 )
             client_handler.start()
+
     except KeyboardInterrupt:
         server.close()
         logging.info("Closing server...")
